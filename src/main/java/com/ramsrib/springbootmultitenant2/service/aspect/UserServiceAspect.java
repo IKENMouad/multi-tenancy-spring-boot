@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 public class UserServiceAspect {
  
   // only applicable to user service
-  @Before("execution(* com.ramsrib.springbootmultitenant2.service.UserService.*(..)) && !execution(* com.ramsrib.springbootmultitenant2.service.UserService.run(..)) && target(userService)")
-  public void aroundExecution(JoinPoint pjp, UserService userService) throws Throwable {
-    org.hibernate.Filter filter = userService.entityManager.unwrap(Session.class).enableFilter("tenantFilter");
-    System.out.println( " in UserServiceAspect " + TenantContext.getCurrentTenant() );
-    filter.setParameter("tenantId", TenantContext.getCurrentTenant());
-    filter.validate();
-  }
+  // @Before("execution(* com.ramsrib.springbootmultitenant2.service.UserService.*(..)) && !execution(* com.ramsrib.springbootmultitenant2.service.UserService.run(..)) && target(userService)")
+  // public void aroundExecution(JoinPoint pjp, UserService userService) throws Throwable {
+  //   org.hibernate.Filter filter = userService.entityManager.unwrap(Session.class).enableFilter("tenantFilter");
+  //   System.out.println( " in UserServiceAspect " + TenantContext.getCurrentTenant() );
+  //    filter.setParameter("tenantId", TenantContext.getCurrentTenant());
+  //   filter.validate();
+  // }
 }
  
